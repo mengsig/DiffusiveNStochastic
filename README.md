@@ -17,7 +17,12 @@ $ sudo snap install zig
 If you do not have the snap package manager, you can install it via:
 
 $ sudo apt-get update
+
 $ sudo apt-get install snapd
+
+And then of course running the command to install zig.
+
+$ sudo snap install zig
 
 
 If you have a MacOS, you can install Zig via Brew with the following command:
