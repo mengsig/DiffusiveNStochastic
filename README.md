@@ -14,6 +14,10 @@ If you have a debian distribution, install Zig via the following command:
 
 $ sudo snap install zig
 
+If you do not have the snap package manager, you can install it via:
+
+$ sudo apt-get update
+$ sudo apt-get install snapd
 
 
 If you have a MacOS, you can install Zig via Brew with the following command:
