@@ -41,13 +41,13 @@ as otherwise, you will run into the issue that the directory already exists!
 Some figures
 --------------------------------
 1. Langevin brownian particle in potential well:
-![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q1.q1_plot.png?raw=true)
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q1/q1_plot.png?raw=true)
 
 2. SIR with Gillespie for well-mixed and "external" contagion.
-![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q2.q2_plot.png?raw=true)
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q2/q2_plot.png?raw=true)
 
 3. SIR with Gillespie for well-mixed and "external" contigion, with short-term immunity.
-![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q3.q3_plot.png?raw=true)
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q3/q3_plot.png?raw=true)
 
 Good luck!
 Marcus Engsig
