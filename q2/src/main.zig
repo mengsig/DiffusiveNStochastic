@@ -13,6 +13,7 @@ pub fn main() !void {
     // Create the directory
     try fs.makeDir(dir_name);
 
+    // Defining variables (f32) because I will use random numbers here.
     const alpha: f32 = 2.5;
     const epsilon: f32 = 0.01;
     const gamma: f32 = 1.0;
@@ -21,7 +22,9 @@ pub fn main() !void {
     const max_time: f32 = 100.0;
     const sim_number: u32 = 100;
 
-    // Defining my allocator for filewriting (name)
+    // Defining my allocator for filewriting (name) -- yes, you really need to do
+    // memory management. A little fun fact, is that strings in zig are actually arrays
+    // of characters!
     const allocator = std.heap.page_allocator;
 
     // writing to the file
@@ -53,9 +56,9 @@ pub fn main() !void {
             // Determine which event happens
             const r2 = randomGenerator.float(f32);
             if (r2 < rate_infection / total_rate) {
-                N += 1; // Infection event
+                N += 1;
             } else {
-                N -= 1; // Recovery event
+                N -= 1;
             }
 
             try writer.print("{},{}\n", .{ t, N });

@@ -1,7 +1,11 @@
+// Here i just import the standard library
 const std = @import("std");
+// Creating a random number generator
 var prng = std.rand.DefaultPrng.init(44);
 const randomGenerator = prng.random();
 
+// Creating a function for gaussian noise that follows your requirements
+// FYI: @sqrt and @log and @floatFromInt are inherent function calls in zig.
 fn randomGaussian() f64 {
     var g1: f64 = 0;
     var g2: f64 = 0;
@@ -19,12 +23,19 @@ fn randomGaussian() f64 {
 }
 
 pub fn main() !void {
+    // Defining the variables
+    // Here, when I do not assign a type like f32, u32 i32... etc.
+    // What is happening is that I am setting the type to type COMPTIME.
+    // This means, that during compilation, it gets inlined and the memory is never stored!
+    // This is a very cool feature of Zig (you can also do comptime for loops etc.)
     const dt = 0.01;
     const t_max = 50.0;
     const n_steps: usize = @intFromFloat(t_max / dt);
     const D = 0.2;
     const eta = 2.0;
     const n_trajectories = 500;
+
+    // Using the standard library for the cwd sys call
     const fs = std.fs.cwd();
 
     // Define the path of the directory to be created
@@ -33,11 +44,17 @@ pub fn main() !void {
     // Create the directory
     try fs.makeDir(dir_name);
 
+    // Creating a 2D array of float16 - try f32, f64 for more accuracy.
+    // For floats we can only do f16, f32, f64 because of syscalls. But, in Zig
+    // with other types, you have FULL memory management - e.g. you can create
+    // an array of u3 or array of u13 or whatever you want!
     var X: [n_trajectories][n_steps]f64 = undefined;
+    // setting initial values to 1.0 (this is also done in comptime)
     for (0..n_trajectories) |i| {
         X[i][0] = 1.0;
     }
 
+    // The main loop
     for (1..n_steps) |i| {
         for (0..n_trajectories) |j| {
             const dX = (-((X[j][i - 1] * X[j][i - 1] * X[j][i - 1]) - X[j][i - 1] + 1.0) / eta * dt) + std.math.sqrt(2.0 * D * dt) * randomGaussian();
@@ -50,10 +67,11 @@ pub fn main() !void {
     defer file.close();
     var writer = file.writer();
 
-    // Write results to the file
+    // Create column labels
     for (0..n_trajectories) |i| {
         try writer.print("{},", .{i});
     }
+    // Write results to the file
     try writer.print("\n", .{});
     for (0..n_steps) |i| {
         for (0..n_trajectories) |j| {
