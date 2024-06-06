@@ -5,6 +5,7 @@ var prng = std.rand.DefaultPrng.init(44);
 const randomGenerator = prng.random();
 
 // Creating a function for gaussian noise that follows your requirements
+// NOTE: we use the box-muller transform.
 // FYI: @sqrt and @log and @floatFromInt are inherent function calls in zig.
 fn randomGaussian() f64 {
     var g1: f64 = 0;
