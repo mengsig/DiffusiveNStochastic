@@ -37,4 +37,5 @@ print(f"Steady-state mean: N = {ss_mean:.3f}")
 
 plt.tight_layout()
 fig.savefig("q2_plot.pdf")
+fig.savefig("q2_plot.png")
 plt.show()

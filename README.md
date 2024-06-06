@@ -4,8 +4,8 @@ This is the repository for the assignment for Diffusive and Stochastic Processes
 Problems:
 --------------------------------
 1. Langevin: Brownian particle in the over-damped limit under the force of a potential (potential-well).
-2. SIR Model: Pandemic spreading of the flu with re-contagion and well-mixed population.
-3. SIR Model: Pandemic spreading of the flu with re-contagion and well-mixed population, with flu immunity.
+2. SIR Model (Gillespie): Pandemic spreading of the flu with re-contagion and well-mixed population.
+3. SIR Model (Gillespie): Pandemic spreading of the flu with re-contagion and well-mixed population, with flu immunity.
 
 --------------------------------
 Instructions:
@@ -36,6 +36,18 @@ $ rm -r data
 between every zig build run
 $ zig build run -Doptimize=ReleaseFast
 as otherwise, you will run into the issue that the directory already exists!
+
+--------------------------------
+Some figures
+--------------------------------
+1. Langevin brownian particle in potential well:
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q1.q1_plot.png?raw=true)
+
+2. SIR with Gillespie for well-mixed and "external" contagion.
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q2.q2_plot.png?raw=true)
+
+3. SIR with Gillespie for well-mixed and "external" contigion, with short-term immunity.
+![Model](https://github.com/mengsig/DiffusiveNStochastic/blob/main/q3.q3_plot.png?raw=true)
 
 Good luck!
 Marcus Engsig

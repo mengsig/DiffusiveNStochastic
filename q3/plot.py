@@ -27,6 +27,7 @@ plt.xticks(fontsize = 16)
 plt.yticks(fontsize = 16)
 plt.xlabel("time, $t$", fontsize = 20)
 plt.ylabel("No. Persons, $N(t)$", fontsize = 20)
+plt.legend(fontsize = 18)
 
 # We have reached steady state after t > 10:
 y_slice = y[x>10]
@@ -38,4 +39,5 @@ print(f"Steady-state mean: N = {ss_mean:.3f}")
 
 plt.tight_layout()
 fig.savefig("q3_plot.pdf")
+fig.savefig("q3_plot.png")
 plt.show()
